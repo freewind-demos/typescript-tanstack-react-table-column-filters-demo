@@ -1,4 +1,4 @@
-TypeScript React Table Column Visibility Demo
+TypeScript React Table Expanding Demo
 ===========================================
 
 ```
