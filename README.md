@@ -1,4 +1,4 @@
-TypeScript React Table Expanding Demo
+TypeScript React Table Filters Demo
 ===========================================
 
 ```
