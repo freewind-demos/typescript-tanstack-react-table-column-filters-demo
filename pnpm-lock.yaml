@@ -1,8 +1,9 @@
-lockfileVersion: 5.3
+lockfileVersion: 5.4
 
 specifiers:
   '@faker-js/faker': ^6.3.1
   '@rollup/plugin-replace': 4.0.0
+  '@tanstack/match-sorter-utils': 8.0.0-alpha.82
   '@tanstack/react-table': 8.0.0-beta.9
   '@tanstack/table-core': ^8.0.0
   '@types/faker': ^5.5.9
@@ -17,7 +18,8 @@ specifiers:
 
 dependencies:
   '@faker-js/faker': 6.3.1
-  '@tanstack/react-table': 8.0.0-beta.9_react-dom@17.0.2+react@17.0.2
+  '@tanstack/match-sorter-utils': 8.0.0-alpha.82
+  '@tanstack/react-table': 8.0.0-beta.9_sfoxds7t5ydpegc3knd667wn6m
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
   typescript: 4.7.4
@@ -202,6 +204,8 @@ packages:
     resolution: {integrity: sha512-YZWVaglMiplo7v8f1oMQ5ZPQr0vn7HPeZXxXWsxXJRjGVrzUFn9OxFQl1sb5wzfootjA/yChhW84BV+383FSOw==}
     engines: {node: '>=6.0.0'}
     hasBin: true
+    dependencies:
+      '@babel/types': 7.18.4
     dev: true
 
   /@babel/plugin-syntax-jsx/7.17.12_@babel+core@7.18.5:
@@ -366,7 +370,14 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /@tanstack/react-table/8.0.0-beta.9_react-dom@17.0.2+react@17.0.2:
+  /@tanstack/match-sorter-utils/8.0.0-alpha.82:
+    resolution: {integrity: sha512-ugMrs6vaqAE0GAlqo5vkWqXJEk+rhIiTZjX4tUcOItw7HJ2OfObJXpPHJsbTj0gLQXtMsYWUqjthRtR6KjmrDw==}
+    engines: {node: '>=12'}
+    dependencies:
+      remove-accents: 0.4.2
+    dev: false
+
+  /@tanstack/react-table/8.0.0-beta.9_sfoxds7t5ydpegc3knd667wn6m:
     resolution: {integrity: sha512-LajXCA9QEH/MOYI9p2KbC8iiXW/YO12pFBOj53epSLRAX7G3y4wI5euhk+URQW9TditYOcKGbNzA/mxZgqfoEw==}
     engines: {node: '>=12'}
     peerDependencies:
@@ -859,6 +870,10 @@ packages:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
+    dev: false
+
+  /remove-accents/0.4.2:
+    resolution: {integrity: sha1-CkPTqq4egNuRngeuJUsoXZ4ce7U=}
     dev: false
 
   /resolve/1.22.1:
