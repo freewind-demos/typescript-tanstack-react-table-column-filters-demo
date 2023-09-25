@@ -1,3 +1,5 @@
+import { faker } from '@faker-js/faker'
+
 export type Person = {
   firstName: string
   lastName: string
@@ -5,87 +7,42 @@ export type Person = {
   visits: number
   progress: number
   status: 'relationship' | 'complicated' | 'single'
+  subRows?: Person[]
 }
 
-export const defaultData: Person[] = [
-  {
-    "firstName": "Queenie",
-    "lastName": "Price",
-    "age": 32,
-    "visits": 708,
-    "progress": 47,
-    "status": "complicated"
-  },
-  {
-    "firstName": "Pearl",
-    "lastName": "Lubowitz",
-    "age": 1,
-    "visits": 273,
-    "progress": 52,
-    "status": "relationship"
-  },
-  {
-    "firstName": "Jessie",
-    "lastName": "Schinner",
-    "age": 35,
-    "visits": 737,
-    "progress": 59,
-    "status": "single"
-  },
-  {
-    "firstName": "Sophie",
-    "lastName": "Ward",
-    "age": 8,
-    "visits": 118,
-    "progress": 67,
-    "status": "complicated"
-  },
-  {
-    "firstName": "Salvatore",
-    "lastName": "Little",
-    "age": 30,
-    "visits": 777,
-    "progress": 13,
-    "status": "complicated"
-  },
-  {
-    "firstName": "Lucio",
-    "lastName": "Ankunding",
-    "age": 1,
-    "visits": 570,
-    "progress": 87,
-    "status": "relationship"
-  },
-  {
-    "firstName": "Nels",
-    "lastName": "Ferry",
-    "age": 36,
-    "visits": 747,
-    "progress": 55,
-    "status": "single"
-  },
-  {
-    "firstName": "Naomie",
-    "lastName": "Bradtke",
-    "age": 28,
-    "visits": 807,
-    "progress": 52,
-    "status": "complicated"
-  },
-  {
-    "firstName": "Rose",
-    "lastName": "Leannon",
-    "age": 0,
-    "visits": 212,
-    "progress": 96,
-    "status": "complicated"
-  },
-  {
-    "firstName": "Clara",
-    "lastName": "Bailey",
-    "age": 27,
-    "visits": 694,
-    "progress": 42,
-    "status": "complicated"
+const range = (len: number) => {
+  const arr = []
+  for (let i = 0; i < len; i++) {
+    arr.push(i)
   }
-]
+  return arr
+}
+
+const newPerson = (): Person => {
+  return {
+    firstName: faker.person.firstName(),
+    lastName: faker.person.lastName(),
+    age: faker.number.int(40),
+    visits: faker.number.int(1000),
+    progress: faker.number.int(100),
+    status: faker.helpers.shuffle<Person['status']>([
+      'relationship',
+      'complicated',
+      'single',
+    ])[0]!,
+  }
+}
+
+export function makeData(...lens: number[]) {
+  const makeDataLevel = (depth = 0): Person[] => {
+    const len = lens[depth]!
+    return range(len).map((d): Person => {
+      return {
+        ...newPerson(),
+        subRows: lens[depth + 1] ? makeDataLevel(depth + 1) : undefined,
+      }
+    })
+  }
+
+  return makeDataLevel()
+}
