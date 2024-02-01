@@ -3,21 +3,21 @@
     "start": "vite --open"
   },
   "dependencies": {
-    "@faker-js/faker": "^8.1.0",
+    "@faker-js/faker": "8.1.0",
     "@tanstack/match-sorter-utils": "8.8.4",
     "@tanstack/react-table": "8.10.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "^5.2.2"
+    "typescript": "5.3.3"
   },
   "devDependencies": {
     "@rollup/plugin-replace": "5.0.2",
-    "@tanstack/table-core": "^8.10.1",
-    "@types/faker": "^6.6.9",
-    "@types/react": "^18.2.22",
-    "@types/react-dom": "^18.2.7",
-    "@vitejs/plugin-react": "^4.1.0",
-    "rollup": "^3.29.3",
+    "@tanstack/table-core": "8.10.1",
+    "@types/faker": "6.6.9",
+    "@types/react": "18.2.22",
+    "@types/react-dom": "18.2.7",
+    "@vitejs/plugin-react": "4.1.0",
+    "rollup": "3.29.3",
     "vite": "4.4.9"
   }
 }
